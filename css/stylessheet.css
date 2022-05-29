@@ -38,24 +38,50 @@ header {
   color: var(--electric-violet-900);
   font-weight: bold;
   font-size: 1.5rem;
-  padding: 25px;
+  padding: 20px;
 }
 
 .upper-header {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .search-bar {
   display: flex;
   width: 60%;
+  height: min-content;
 }
 
 .search-bar input {
   flex: 1;
-  border-radius: 15px;
-  margin-left: 15px;
+  border-radius: 20px;
+  margin: 0 15px;
   border: none;
   background-color: var(--electric-violet-300);
+}
+
+.search-bar + img {
+  margin-left: auto;
+}
+
+.upper-header-right {
+  display: flex;
+  align-items: center;
+}
+
+.upper-header-right > * {
+  margin-right: 20px;
+  height: min-content;
+  font-weight: bold;
+  font-size: 1.7rem;
+}
+
+#user-image {
+  vertical-align: middle;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
 }
 
 .sidebar {
