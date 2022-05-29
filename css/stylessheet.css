@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --electric-violet-50: #fbf4ff;
+  --electric-violet-100: #f5e5ff;
+  --electric-violet-200: #ecd0ff;
+  --electric-violet-300: #ddaaff;
+  --electric-violet-400: #c974ff;
+  --electric-violet-500: #b540ff;
+  --electric-violet-600: #a31bff;
+  --electric-violet-700: #870bda;
+  --electric-violet-800: #780fba;
+  --electric-violet-900: #630e95;
+  --electric-violet-1000: #2f0646;
+}
+
+body {
+  background-color: var(--electric-violet-1000);
+}
+
+.dashboard {
+  width: 80vw;
+  height: 100vh;
+  display: grid;
+  margin: auto;
+  grid-template: "sidebar header" 1fr "sidebar content" 4fr / 1fr 4fr;
+}
+
+header {
+  grid-area: header;
+  background-color: var(--electric-violet-50);
+  color: var(--electric-violet-900);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: var(--electric-violet-500);
+}
+
+.sidebar ul li {
+  list-style: none;
+}
+
+.sidebar a {
+  color: var(--electric-violet-50);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.content {
+  grid-area: content;
+  background-color: var(--electric-violet-300);
+}
