@@ -17,34 +17,39 @@
   --electric-violet-1000: #2f0646;
 }
 
-body {
+body,
+html {
   background-color: var(--electric-violet-1000);
+  min-height: 100%;
 }
 
 .dashboard {
   width: 80vw;
-  height: 100vh;
+  min-height: 100vh;
   display: grid;
   margin: auto;
-  grid-template: "sidebar header" 1fr "sidebar content" 4fr / 1fr minmax(
-      375px,
-      4fr
-    );
+  grid-template: "sidebar header" 1fr "sidebar content" 4fr / 1fr 4fr;
 }
 
 header {
   grid-area: header;
+  position: relative;
+  z-index: 1;
   background-color: var(--electric-violet-50);
   color: var(--electric-violet-900);
   font-weight: bold;
   font-size: 1.5rem;
   padding: 20px;
+  box-shadow: 2px 2px 8px var(--electric-violet-1000);
 }
 
 .upper-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.lower-header {
 }
 
 .search-bar {
@@ -79,10 +84,51 @@ header {
   font-size: 1.7rem;
 }
 
+.lower-header {
+  display: flex;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.buttons button {
+  --clickable-space-around-button: -15px;
+  position: relative;
+  display: inline-block;
+  font-size: 1.5rem;
+  background-color: var(--electric-violet-500);
+  color: var(--electric-violet-50);
+  padding: 5px 15px;
+  border-radius: 20px;
+  width: 150px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.buttons button::after {
+  content: "";
+  left: calc(var(--clickable-space-around-button) + 5px);
+  right: calc(var(--clickable-space-around-button) + 5px);
+  bottom: var(--clickable-space-around-button);
+  top: var(--clickable-space-around-button);
+  position: absolute;
+}
+
 #user-image {
   vertical-align: middle;
   width: 100px;
   height: 100px;
+  border-radius: 50%;
+}
+
+#user-image-lower {
+  vertical-align: middle;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
 }
 
@@ -139,20 +185,28 @@ header {
 }
 
 .content {
+  padding: 20px;
   grid-area: content;
   background-color: var(--electric-violet-300);
   display: grid;
+  gap: 15px;
   grid-template:
-    ". ." 50px
-    "projects announcements" 2fr
-    "projects ." 50px
+    ". ." 30px
+    "projects announcements" 1fr
+    "projects ." 30px
     "projects trending" 1fr / 2fr 1fr;
+}
+.content > h2 {
+  font-size: 1.7rem;
+  color: var(--electric-violet-1000);
 }
 
 .projects {
   grid-area: projects;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 2fr));
+  grid-auto-rows: 200px;
 }
 
 .projects div ~ {
@@ -160,15 +214,18 @@ header {
 }
 
 .card {
-  width: 90%;
-  height: 90%;
   background-color: var(--electric-violet-50);
+  box-shadow: 2px 2px 8px var(--electric-violet-1000);
 }
 
 .announcements {
   grid-area: announcements;
+  background-color: var(--electric-violet-50);
+  box-shadow: 2px 2px 8px var(--electric-violet-1000);
 }
 
 .trending {
   grid-area: trending;
+  background-color: var(--electric-violet-50);
+  box-shadow: 2px 2px 8px var(--electric-violet-1000);
 }
