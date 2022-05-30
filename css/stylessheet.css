@@ -55,6 +55,8 @@ header {
 
 .search-bar input {
   flex: 1;
+  padding: 10px;
+  font-size: 1.2rem;
   border-radius: 20px;
   margin: 0 15px;
   border: none;
@@ -87,7 +89,7 @@ header {
 .sidebar {
   grid-area: sidebar;
   background-color: var(--electric-violet-700);
-  padding: 20px 20px 20px 20px;
+  padding: 50px 20px 20px 20px;
 }
 
 .sidebar-header {
@@ -139,4 +141,34 @@ header {
 .content {
   grid-area: content;
   background-color: var(--electric-violet-300);
+  display: grid;
+  grid-template:
+    ". ." 50px
+    "projects announcements" 2fr
+    "projects ." 50px
+    "projects trending" 1fr / 2fr 1fr;
+}
+
+.projects {
+  grid-area: projects;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.projects div ~ {
+  display: grid;
+}
+
+.card {
+  width: 90%;
+  height: 90%;
+  background-color: var(--electric-violet-50);
+}
+
+.announcements {
+  grid-area: announcements;
+}
+
+.trending {
+  grid-area: trending;
 }
